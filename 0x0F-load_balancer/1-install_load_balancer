@@ -8,8 +8,8 @@ server_config
 "
 backend jay
         balance roundrobin
-        server 531517-web-01 54.90.9.3 check
-        server 531517-web-02 100.25.183.160 check
+        server 531517-web-01 54.90.9.3:80 check
+        server 531517-web-02 100.25.183.160:80 check
 frontend jafe
         bind *:80
         mode http
