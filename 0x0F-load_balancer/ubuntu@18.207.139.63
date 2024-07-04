@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Install and configure HAproxy on your load balancer server
+
+sudo apt-get -y update
+sudo apt-get install -y haproxy
+sudo chwon $USER:USER /etc/haproxy/haproxy.cfg
+
+printf %s "
+backend jay
+        balance roundrobin
+        option forwardfor
+        server 531517-web-01 54.90.9.3 check
+        server 531517-web-02 100.25.183.160 check
+frontend jafe
+        bind *:80
+        mode http
+        default_backend jay
+" >> /etc/haproxy/haproxy.cfg
+
+sudo service haproxy restart
