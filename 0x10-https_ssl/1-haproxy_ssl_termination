@@ -7,7 +7,8 @@ global
 	user haproxy
 	group haproxy
 	daemon
-	
+	#dhparam
+	tune.ssl.default-dh-param 2048	
 	# Default SSL material locations
 	ca-base /etc/ssl/certs
 	crt-base /etc/ssl/private
